@@ -377,10 +377,10 @@ function zurb_foundation_preprocess_html(&$variables) {
  * Add template suggestions and classes
  */
 function zurb_foundation_preprocess_node(&$vars) {
-  // Add node--node_type--view_mode.tpl.php suggestions
+  // Add node--node_type--view_mode.html.twig suggestions
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
 
-  // Add node--view_mode.tpl.php suggestions
+  // Add node--view_mode.html.twig suggestions
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['view_mode'];
 
   // Add a class for the view mode.
@@ -415,7 +415,7 @@ function zurb_foundation_preprocess_node(&$vars) {
  * Add convenience variables and template suggestions
  */
 function zurb_foundation_preprocess_page(&$variables) {
-  // Add page--node_type.tpl.php suggestions
+  // Add page--node_type.html.twig suggestions
   if (!empty($variables['node'])) {
     $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
   }
