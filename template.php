@@ -340,10 +340,10 @@ function zurb_foundation_preprocess_html(&$variables) {
   // Classes for body element. Allows advanced theming based on context
   if (!$variables['is_front']) {
     // Add unique class for each page.
-    $path = drupal_get_path_alias($_GET['q']);
+    $path = current_path();
     // Add unique class for each website section.
     list($section, ) = explode('/', $path, 2);
-    $arg = explode('/', $_GET['q']);
+    $arg = explode('/', $path);
     if ($arg[0] == 'node' && isset($arg[1])) {
       if ($arg[1] == 'add') {
         $section = 'node-add';
