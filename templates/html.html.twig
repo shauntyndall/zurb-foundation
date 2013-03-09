@@ -41,7 +41,7 @@
  */
 #}
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" {{ html_attributes }}>> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" {{ html_attributes }}> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" {{ html_attributes }}> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" {{ html_attributes }}> <![endif]-->
 <!--[if gt IE 8]><!--> <html {{ html_attributes }} {{ rdf_namespaces }}> <!--<![endif]-->
@@ -50,18 +50,21 @@
   <title>{{ head_title }}</title>
   {% if styles %}
     {{ styles }}
-  {% endif %}}
+  {% endif %}
   {% if scripts %}
     {{ scripts }}
-  {% endif %}}
+  {% endif %}
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 <body class="{{ classes }}" {{ attributes }}>
-  <div class="skip-link">
-    <a href="#main-content" class="element-invisible element-focusable">{% t('Skip to main content') %}</a>
-  </div>
+  {% if skip_link %}
+    <div class="skip-link">
+      {{ skip_link }}
+    </div>
+  {% endif %}
+
   {% if head %}
     {{ page_top }}
   {% endif %}
