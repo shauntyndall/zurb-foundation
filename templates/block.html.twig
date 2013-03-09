@@ -40,18 +40,26 @@
  * @see template_process()
  */
 #}
-<?php if ($block->delta != 'main'):  ?>  
-  <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
-<?php endif; ?>    
-    
-  <?php print render($title_prefix); ?>
-  <?php if ($block->subject): ?>
-    <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
-  <?php endif;?>
-  <?php print render($title_suffix); ?>
-  
-  <?php !empty($content_attributes) ? print '<div ' .  $content_attributes . '>' : ''; ?>
-    <?php print $content ?>
-  <?php !empty($content_attributes) ? print '</div>' : ''; ?>
+{% if block.delta != 'main' %}
+  <div{{ attributes }}>
+{% endif %}
 
-<?php $block->delta != 'main' ? print '</div>' : ''; ?>
+    {{ title_prefix }}
+      {% if block.subject %}
+        <h2 {{ title_attributes }}>{{ block.subject }}</h2>
+      {% endif %}
+    {{ title_suffix }}
+
+    {% if content_attributes|length %}
+      <div {{ content_attributes }}>
+    {% endif %}
+
+      {{ content }}
+
+    {% if content_attributes|length %}
+      </div>
+    {% endif %}
+
+{% if block.delta != 'main' %}
+  </div>
+{% endif %}
