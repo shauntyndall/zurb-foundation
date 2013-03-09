@@ -192,7 +192,7 @@ function zurb_foundation_preprocess_block(&$vars) {
   $vars['classes_array'][] = $vars['block_html_id'];
 
   // Add classes based on region.
-  switch ($vars['elements']['#block']->region) {
+  switch ($vars['elements']['#block_config']->region) {
     // Add a striping class
     case 'sidebar_first':
     case 'sidebar_second':
@@ -328,6 +328,8 @@ function zurb_foundation_preprocess_html(&$variables) {
   if (function_exists('locale')) {
     $variables['classes_array'][] = 'lang-' . $variables['language']->language;
   }
+
+  $variables['skip_link'] = l('Skip to main content', '', array('fragment' => 'main-content', 'attributes' => array('class' => array('element-invisible', 'element-focusable'))));
 
   //  @TODO Custom fonts from Google web-fonts
   //  $font = str_replace(' ', '+', theme_get_setting('zurb_foundation_font'));
