@@ -1,7 +1,7 @@
 name = ZURB Foundation
-description = Drupal implementation of the Foundation 3 framework
-core = 7.x
-engine = phptemplate
+description = Drupal implementation of the Foundation 4 framework.
+core = 8.x
+engine = twig
 
 ; Image appears on admin/appearance
 screenshot = images/screenshot.png
@@ -62,10 +62,3 @@ plugins[panels][layouts] = layouts
 ; settings[foundation_zurb_credit] = ''
 ; settings[foundation_zurb_font_fallback] = 'sans-serif'
 ; settings[foundation_zurb_font_selectors] = 'body'
-
-; Information added by drupal.org packaging script on 2013-03-09
-version = "7.x-2.x-dev"
-core = "7.x"
-project = "zurb-foundation"
-datestamp = "1362828664"
-
