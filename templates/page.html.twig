@@ -1,11 +1,11 @@
 <header class="row">
   {% if linked_site_name or linked_logo %}
-    <div class="two columns">
+    <div class="large-2 columns">
       {% if linked_logo %}
         {{ linked_logo }}
       {% endif %}
     </div>
-    <div class="four columns">
+    <div class="large-4 columns">
       {% if is_front %}
         <h1 id="site-name">{{ linked_site_name }}</h1>
       {% else %}
@@ -13,23 +13,23 @@
       {% endif %}
     </div>
   {% endif %}
-    {% if main_menu_links %}
-      <nav class="twelve columns">
-        {{ main_menu_links }}
-      </nav>
-    {% endif %}
+  {% if main_menu_links %}
+    <nav class="large-12 columns">
+      {{ main_menu_links }}
+    </nav>
+  {% endif %}
 </header>
 
 {% if page.header %}
   <div class="row">
-    <div class="twelve columns">
+    <div class="large-12 columns">
       {{ page.header }}
     </div>
   </div>
 {% endif %}
 
 <div class="row">
-  <div class="{{ site_slogan ? 'six' : 'four columns offset-by-eight' }} columns hide-for-small">
+  <div class="{{ site_slogan ? 'large-6' : 'large-4 columns offset-by-eight' }} columns hide-for-small">
     {# /*
       <p>
       {% if logged_in %}
@@ -43,22 +43,22 @@
     #}
   </div>
   {% if site_slogan %}
-    <div class="six columns panel radius hide-for-small">
+    <div class="large-6 columns panel radius hide-for-small">
       {{ site_slogan }}
     </div>
-  {%  endif %}
-    {#
-    /*
-  <div class="show-for-small">
-    <div class="six mobile-two columns">
-      <p>{{ l(t('Login'), 'user/login', array('attributes' => array('class' => array('radius', 'button')))); }}</p>
-    </div>
-    <div class="six mobile-two columns">
-      <p>{{ l(t('Sign Up'), 'user/register', array('attributes' => array('class' => array('radius', 'success', 'button')))); }}</p>
-    </div>
+  {% endif %}
+  {#
+  /*
+<div class="show-for-small">
+  <div class="six mobile-two columns">
+    <p>{{ l(t('Login'), 'user/login', array('attributes' => array('class' => array('radius', 'button')))); }}</p>
   </div>
-  */
-  #}
+  <div class="six mobile-two columns">
+    <p>{{ l(t('Sign Up'), 'user/register', array('attributes' => array('class' => array('radius', 'success', 'button')))); }}</p>
+  </div>
+</div>
+*/
+#}
 </div>
 <div class="row">
   {% if messages %} {{ messages }} {% endif %}
@@ -73,7 +73,7 @@
     {% if breadcrumb %} {{ breadcrumb }} {% endif %}
     {% if title and not is_front %}
       {{ title_prefix }}
-        <h1 id="page-title" class="title">{{ title }}</h1>
+      <h1 id="page-title" class="title">{{ title }}</h1>
       {{ title_suffix }}
     {% endif %}
 
@@ -102,17 +102,17 @@
 {% if page.footer_first or page.footer_middle or page.footer_last %}
   <footer class="row">
     {% if page.footer_first %}
-      <div id="footer-first" class="four columns">
+      <div id="footer-first" class="large-4 columns">
         {{ page.footer_first }}
       </div>
     {% endif %}
     {% if page.footer_middle %}
-      <div id="footer-middle" class="four columns">
+      <div id="footer-middle" class="large-4 columns">
         {{ page.footer_middle }}
       </div>
     {% endif %}
     {% if page.footer_last %}
-      <div id="footer-last" class="four columns">
+      <div id="footer-last" class="large-4 columns">
         {{ page.footer_last }}
       </div>
     {% endif %}
@@ -120,10 +120,10 @@
 {% endif %}
 <div class="bottom-bar panel">
   <div class="row">
-    <div class="twelve columns">
-        {# /*
-      &copy; {{ date('Y') . ' ' . check_plain(site_name) . ' ' . t('All rights reserved.'); }}
-        */ #}
+    <div class="large-12 columns">
+      {# /*
+    &copy; {{ date('Y') . ' ' . check_plain(site_name) . ' ' . t('All rights reserved.'); }}
+      */ #}
     </div>
   </div>
 </div>
