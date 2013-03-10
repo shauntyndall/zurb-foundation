@@ -41,8 +41,10 @@
  */
 #}
 <!DOCTYPE html>
-<!--[if IE 8]>    <html class="no-js lt-ie9" {{ html_attributes }}> <![endif]-->
-<!--[if gt IE 8]><!--> <html {{ html_attributes }} {{ rdf_namespaces }}> <!--<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" {{ html_attributes }}> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html {{ html_attributes }} {{ rdf_namespaces }}> <!--<![endif]-->
 <head>
   {{ head }}
   <title>{{ head_title }}</title>
@@ -53,26 +55,26 @@
     {{ scripts }}
   {% endif %}
   <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 <body{{ attributes }}>
-  {% if skip_link %}
-    <div class="skip-link">
-      {{ skip_link }}
-    </div>
-  {% endif %}
+{% if skip_link %}
+  <div class="skip-link">
+    {{ skip_link }}
+  </div>
+{% endif %}
 
-  {% if page_top %}
-    {{ page_top }}
-  {% endif %}
+{% if page_top %}
+  {{ page_top }}
+{% endif %}
 
-  {% if page %}
-    {{ page }}
-  {% endif %}
+{% if page %}
+  {{ page }}
+{% endif %}
 
-  {% if page_bottom %}
-    {{ page_bottom }}
-  {% endif %}
+{% if page_bottom %}
+  {{ page_bottom }}
+{% endif %}
 </body>
 </html>
