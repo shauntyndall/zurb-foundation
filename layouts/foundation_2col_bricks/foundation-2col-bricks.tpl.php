@@ -27,10 +27,10 @@
     <div class="large-12 columns"><?php print $content['top']; ?></div>
   </div>
   <div class="row">
-    <div class="six columns">
+    <div class="large-6 columns">
       <?php print $content['left_above']; ?>
     </div>
-    <div class="six columns">
+    <div class="large-6 columns">
       <?php print $content['right_above']; ?>
     </div>
   </div>
@@ -38,10 +38,10 @@
     <div class="large-12 columns"><?php print $content['middle']; ?></div>
   </div>
   <div class="row">
-    <div class="six columns">
+    <div class="large-6 columns">
       <?php print $content['left_below']; ?>
     </div>
-    <div class="six columns">
+    <div class="large-6 columns">
       <?php print $content['right_below']; ?>
     </div>
   </div>
