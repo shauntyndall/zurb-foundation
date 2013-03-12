@@ -52,10 +52,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="six columns">
+    <div class="large-6 columns">
       <?php print $content['middle_first']; ?>
     </div>
-    <div class="six columns">
+    <div class="large-6 columns">
       <?php print $content['middle_second']; ?>
     </div>
   </div>
