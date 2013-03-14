@@ -231,11 +231,6 @@ function zurb_foundation_preprocess_field(&$vars) {
   $content_classes[] = 'field-items';
   $item_classes[] = 'field-item';
 
-  // Uncomment the lines below to see variables you can use to target a field
-  // print '<strong>Name:</strong> ' . $name . '<br/>';
-  // print '<strong>Bundle:</strong> ' . $bundle  . '<br/>';
-  // print '<strong>Mode:</strong> ' . $mode .'<br/>';
-
   // Add specific classes to targeted fields
   if(isset($field)) {
     switch ($mode) {
@@ -255,14 +250,6 @@ function zurb_foundation_preprocess_field(&$vars) {
       break;
     }
   }
- // Check if exists
-//  switch ($field) {
-//    case 'field_authors':
-//      $title_classes[] = 'inline';
-//      $content_classes[] = 'authors';
-//      $item_classes[] = 'author';
-//      break;
-//  }
 
   // Apply odd or even classes along with our custom classes to each item
   foreach ($vars['items'] as $delta => $item) {
@@ -389,24 +376,6 @@ function zurb_foundation_preprocess_node(&$vars) {
   }
 
   $vars['title_attributes_array']['class'][] = 'node-title';
-
-//  // Add classes based on node type.
-//  switch ($vars['type']) {
-//    case 'news':
-//    case 'pages':
-//      $vars['attributes_array']['class'][] = 'content-wrapper';
-//      $vars['attributes_array']['class'][] = 'text-content';
-//      break;
-//  }
-//
-//  // Add classes & theme hook suggestions based on view mode.
-//  switch ($vars['view_mode']) {
-//    case 'block_display':
-//      $vars['theme_hook_suggestions'][] = 'node__aside';
-//      $vars['title_attributes_array']['class'] = array('title-block');
-//      $vars['attributes_array']['class'][] = 'block-content';
-//      break;
-//  }
 }
 
 /**
@@ -510,39 +479,6 @@ function zurb_foundation_preprocess_page(&$variables) {
   }
 }
 
-/**
- * Implements template_preprocess_panels_pane().
- *
- */
-function zurb_foundation_preprocess_panels_pane(&$vars) {
-}
-
-/**
-* Implements template_preprocess_views_views_fields().
-*/
-/* Delete me to enable
-function THEMENAME_preprocess_views_view_fields(&$vars) {
- if ($vars['view']->name == 'nodequeue_1') {
-
-   // Check if we have both an image and a summary
-   if (isset($vars['fields']['field_image'])) {
-
-     // If a combined field has been created, unset it and just show image
-     if (isset($vars['fields']['nothing'])) {
-       unset($vars['fields']['nothing']);
-     }
-
-   } elseif (isset($vars['fields']['title'])) {
-     unset ($vars['fields']['title']);
-   }
-
-   // Always unset the separate summary if set
-   if (isset($vars['fields']['field_summary'])) {
-     unset($vars['fields']['field_summary']);
-   }
- }
-}
-// */
 /**
  * Implements template_preprocess_views_view().
  */
