@@ -192,7 +192,7 @@ function zurb_foundation_preprocess_block(&$vars) {
   $vars['classes_array'][] = $vars['block_html_id'];
 
   // Add classes based on region.
-  switch ($vars['elements']['#block_config']->region) {
+  switch ($vars['elements']['#block_config']['region']) {
     // Add a striping class
     case 'sidebar_first':
     case 'sidebar_second':
@@ -307,9 +307,11 @@ function zurb_foundation_preprocess_field(&$vars) {
  */
 function zurb_foundation_preprocess_html(&$variables) {
   global $language;
+  $site_language =            isset($language) ? $language->language : 'en';
+  $site_language_direction =  isset($language) ? $language->dir : 'ltr';
 
   // Clean up the lang attributes
-  $variables['html_attributes'] = 'lang="' . $language->language . '" dir="' . $language->dir . '"';
+  $variables['html_attributes'] = 'lang="' . $site_language . '" dir="' . $site_language_direction . '"';
 
   // Add language body class.
   if (function_exists('locale')) {
@@ -317,12 +319,6 @@ function zurb_foundation_preprocess_html(&$variables) {
   }
 
   $variables['skip_link'] = l('Skip to main content', '', array('fragment' => 'main-content', 'attributes' => array('class' => array('element-invisible', 'element-focusable'))));
-
-  //  @TODO Custom fonts from Google web-fonts
-  //  $font = str_replace(' ', '+', theme_get_setting('zurb_foundation_font'));
-  //  if (theme_get_setting('zurb_foundation_font')) {
-  //    drupal_add_css('http://fonts.googleapis.com/css?family=' . $font , array('type' => 'external', 'group' => CSS_THEME));
-  //  }
 
   // Classes for body element. Allows advanced theming based on context
   if (!$variables['is_front']) {
