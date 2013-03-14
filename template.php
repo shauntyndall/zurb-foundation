@@ -485,15 +485,18 @@ function zurb_foundation_preprocess_page(&$variables) {
 function zurb_foundation_preprocess_views_view(&$vars) {
 }
 
-// @TODO maybe use hook_library_alter or hook_library
+/**
+ * Implements hook_js_alter().
+ * @param $js
+ */
 function zurb_foundation_js_alter(&$js) {
-  if (!module_exists('jquery_update')) {
+  #if (!module_exists('jquery_update')) {
     // Swap out jQuery to use an updated version of the library.
-    $js['misc/jquery.js']['data'] = drupal_get_path('theme', 'zurb_foundation') . '/js/jquery.js';
-    $js['misc/jquery.js']['version'] = '1.8.2';
-  }
-  // @TODO moving scripts to footer possibly remove?
+    #$js['misc/jquery.js']['data'] = drupal_get_path('theme', 'zurb_foundation') . '/js/jquery.js';
+    #$js['misc/jquery.js']['version'] = '1.8.2';
+  #}
+  /*
   foreach ($js as $key => $js_script) {
     $js[$key]['scope'] = 'footer';
-  }
+  }*/
 }
