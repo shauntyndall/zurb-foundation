@@ -54,9 +54,6 @@ regions[footer_last]     = Footer last
 regions_hidden[] = Page top
 regions_hidden[] = Page bottom
 
-; Panel Layouts
-plugins[panels][layouts] = layouts
-
 ; Possible theme settings
 ; settings[foundation_zurb_copyright] = 1
 ; settings[foundation_zurb_credit] = ''
