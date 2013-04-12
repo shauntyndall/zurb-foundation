@@ -63,7 +63,7 @@
 <div class="row">
   {% if messages %} {{ messages }} {% endif %}
   {% if page.help %} {{ page.help }} {% endif %}
-  <div id="main" class="{{ main_grid }} columns">
+  <div id="main" class="{#{{ main_grid }}#} columns">
     {% if page.highlighted %}
       <div class="highlight panel callout">
         {{ page.highlighted }}
@@ -89,12 +89,12 @@
     {{ page.content }}
   </div>
   {% if page.sidebar_first %}
-    <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+    <div id="sidebar-first" class="{#{{ sidebar_first_grid }}#} columns sidebar ">
       {{ page.sidebar_first }}
     </div>
   {% endif %}
   {% if page.sidebar_second %}
-    <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
+    <div id="sidebar-second" class="{#{{ sidebar_sec_grid }}#} columns sidebar">
       {{ page.sidebar_second }}
     </div>
   {% endif %}

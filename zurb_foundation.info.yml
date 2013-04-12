@@ -7,20 +7,21 @@ engine: twig
 screenshot: images/screenshot.png
 
 # Foundation framework stylesheets
-stylesheets[all][]: css/foundation.min.css
-# Uncompressed uncomment for dev or as a reference
-;stylesheets[all][]: css/foundation.css
+stylesheets:
+  all:
+    # Uncompressed uncomment for dev or as a reference
+    # - css/foundation.min.css
+    - css/foundation.css
+    # Base theme specific CSS
+    - css/drupal.css
+    - css/app.css
 
-# Base theme specific CSS
-stylesheets[all][]: css/drupal.css
-
-# Theme specific CSS
-stylesheets[all][]: css/app.css
-
-# Foundation framework scripts.
-scripts[]: js/modernizr.foundation.js
-scripts[]: js/foundation.min.js
-scripts[]: js/app.js
+scripts:
+  - js/modernizr.foundation.js
+  # Foundation framework scripts.
+  - js/foundation.min.js
+  # Your theme javascript
+  - js/app.js
 
 # Uncompressed uncomment for development or as a reference
 # scripts[]: js/jquery.foundation.accordion.js
@@ -53,8 +54,9 @@ regions:
   footer_middle: 'Footer middle column'
   footer_last: 'Footer last column'
   footer: Footer
-  hidden_top: 'Page Top'
-  hidden_bottom: 'Page bottom'
+regions_hidden:
+  page_top: 'Page Top'
+  page_bottom: 'Page bottom'
 
 # @todo convert the settings below later
 

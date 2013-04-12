@@ -74,11 +74,11 @@
  * @see template_process()
  */
 #}
-<article id="node-{{ node.nid }}" class="{{ classes }}"{{ attributes }}>
+<article id="node-{{ node.nid }}" class="{{ attributes.class }}"{{ attributes }}>
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>
-      <a href="{{ node_url }}" rel="bookmark">{{ label }}</a>
+      <h2><a href="{{ node_url }}" rel="bookmark">{{ label }}</a></h2>
     </h2>
   {% endif %}
   {{ title_suffix }}
