@@ -39,20 +39,29 @@ scripts[]: js/app.js
 # scripts[]: js/jquery.placeholder.js
 
 # Regions are output in the page.tpl.php
-regions[header]         : Header
-regions[navigation]     : Navigation
-regions[help]           : Help
-regions[highlighted]    : Highlighted
-regions[content]        : Content
-regions[sidebar_first]  : Left Sidebar
-regions[sidebar_second] : Right Sidebar
-regions[footer_first]   : Footer first
-regions[footer_middle]  : Footer middle
-regions[footer_last]    : Footer last
+
+regions:
+  header: Header
+  help: Help
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+  footer_first: 'Footer first column'
+  footer_middle: 'Footer middle column'
+  footer_last: 'Footer last column'
+  footer: Footer
+  hidden_top: 'Page Top'
+  hidden_bottom: 'Page bottom'
+
+# @todo convert the settings below later
 
 # Hidden regions
-regions_hidden[]: Page top
-regions_hidden[]: Page bottom
+
+# regions_hidden[]: Page top
+# regions_hidden[]: Page bottom
 
 # Possible theme settings
 # settings[foundation_zurb_copyright]: 1
