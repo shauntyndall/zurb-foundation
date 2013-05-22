@@ -2,6 +2,7 @@ name: ZURB Foundation
 description: The most advanced responsive front-end framework in the world, now in Drupal!
 core: 8.x
 type: theme
+engine: twig
 
 # Image appears on admin/appearance
 screenshot: images/screenshot.png
