@@ -57,17 +57,17 @@ function drush_zurb_foundation_foundation_sub_theme($name = NULL, $machine_name 
   }
 
   // Rename files and fill in the theme machine name
-  drush_op('rename', "$subtheme_path/STARTER.info.txt", "$subtheme_path/$machine_name.info");
+  drush_op('rename', "$subtheme_path/STARTER.info.txt", "$subtheme_path/$machine_name.info.yml");
   drush_op('rename', "$subtheme_path/css/custom.css", "$subtheme_path/css/$machine_name.css");
   drush_op('rename', "$subtheme_path/sass/custom.scss", "$subtheme_path/sass/$machine_name.scss");
-  drush_op('rename', "$subtheme_path/js/scripts.js", "$subtheme_path/js/$machine_name.js");
+  drush_op('rename', "$subtheme_path/js/custom/app.js", "$subtheme_path/js/$machine_name.js");
   // Change the name of the theme
   drush_op('zurb_foundation_file_str_replace', "$subtheme_path/$machine_name.info", 'ZURB Foundation Sub-theme Starter', "$name");
   // Change the name of the theme
   if (!empty($description))
     drush_op('zurb_foundation_file_str_replace', "$subtheme_path/$machine_name.info", 'Custom sub-theme, inherits from the Foundation base theme read <a href="http://foundation.zurb.com/docs/index.php">framework documentation</a>', "$description");
   // Create the template.php file with replaced theme name
-  drush_op('zurb_foundation_file_str_replace', "$subtheme_path/template.php", 'STARTER', "$machine_name");
+  drush_op('zurb_foundation_file_str_replace', "$subtheme_path/$machine_name.theme", 'STARTER', "$machine_name");
   // Rename the .info reference to the custom css file
   drush_op('zurb_foundation_file_str_replace', "$subtheme_path/$machine_name.info", 'custom.css', "$machine_name.css");
   // Rename the .info reference to the custom js file
