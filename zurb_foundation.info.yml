@@ -1,5 +1,5 @@
 name: ZURB Foundation
-description: Drupal implementation of the Foundation 4 framework.
+description: The most advanced responsive front-end framework in the world, now in Drupal!
 core: 8.x
 type: theme
 
@@ -11,33 +11,33 @@ stylesheets:
   all:
     # Uncompressed uncomment for dev or as a reference
     # - css/foundation.min.css
+    - css/normalize.css
     - css/foundation.css
     # Base theme specific CSS
     - css/drupal.css
     - css/app.css
 
 scripts:
-  - js/modernizr.foundation.js
+  - js/vendor/custom.modernizr.js
   # Foundation framework scripts.
-  - js/foundation.min.js
+  - js/foundation/foundation.min.js
   # Your theme javascript
-  - js/app.js
+  - js/custom/app.js
 
 # Uncompressed uncomment for development or as a reference
-# scripts[]: js/jquery.foundation.accordion.js
-# scripts[]: js/jquery.foundation.alerts.js
-# scripts[]: js/jquery.foundation.buttons.js
-# scripts[]: js/jquery.foundation.clearing.js
-# scripts[]: js/jquery.foundation.forms.js
-# scripts[]: js/jquery.foundation.joyride.js
-# scripts[]: js/jquery.foundation.magellan.js
-# scripts[]: js/jquery.foundation.mediaQueryToggle.js
-# scripts[]: js/jquery.foundation.navigation.js
-# scripts[]: js/jquery.foundation.orbit.js
-# scripts[]: js/jquery.foundation.reveal.js
-# scripts[]: js/jquery.foundation.tabs.js
-# scripts[]: js/jquery.foundation.tooltips.js
-# scripts[]: js/jquery.placeholder.js
+# scripts[]: js/foundation/foundation.alerts.js
+# scripts[]: js/foundation/foundation.clearing.js
+# scripts[]: js/foundation/foundation.cookie.js
+# scripts[]: js/foundation/foundation.dropdown.js
+# scripts[]: js/foundation/foundation.forms.js
+# scripts[]: js/foundation/foundation.joyride.js
+# scripts[]: js/foundation/foundation.magellan.js
+# scripts[]: js/foundation/foundation.orbit.js
+# scripts[]: js/foundation/foundation.placeholder.js
+# scripts[]: js/foundation/foundation.reveal.js
+# scripts[]: js/foundation/foundation.section.js
+# scripts[]: js/foundation/foundation.tooltips.js
+# scripts[]: js/foundation/foundation.topbar.js
 
 # Regions are output in the page.tpl.php
 
