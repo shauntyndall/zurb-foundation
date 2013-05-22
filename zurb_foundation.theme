@@ -485,5 +485,12 @@ function zurb_foundation_preprocess_views_view(&$variables) {}
  * @param $js
  */
 function zurb_foundation_js_alter(&$js) {
+  // @todo: implement the below outside of html.html.twig
+  /*drupal_add_js("<script>document.write('<script src=' + ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') + '.js><\/script>')</script>",
+    array('type' => 'inline', 'scope' => 'footer', 'weight' => 20)
+  );
 
+  drupal_add_js('$(document).foundation();',
+    array('type' => 'inline', 'scope' => 'footer', 'weight' => 25)
+  );*/
 }
