@@ -1,7 +1,7 @@
 name: ZURB Foundation
 description: Drupal implementation of the Foundation 4 framework.
 core: 8.x
-engine: twig
+type: theme
 
 # Image appears on admin/appearance
 screenshot: images/screenshot.png
