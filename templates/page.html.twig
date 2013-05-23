@@ -29,7 +29,7 @@
 {% endif %}
 
 <div class="row">
-  <div class="{{ site_slogan ? 'large-6' : 'large-4 columns offset-by-eight' }} columns hide-for-small">
+  <div class="{{ site_slogan ? 'large-6' : 'large-4 columns large-offset-8' }} columns hide-for-small">
     {# /*
       <p>
       {% if logged_in %}
@@ -43,7 +43,7 @@
     #}
   </div>
   {% if site_slogan %}
-    <div class="large-6 columns panel radius hide-for-small">
+    <div class="large-6 columns hide-for-small">
       {{ site_slogan }}
     </div>
   {% endif %}
@@ -63,7 +63,7 @@
 <div class="row">
   {% if messages %} {{ messages }} {% endif %}
   {% if page.help %} {{ page.help }} {% endif %}
-  <div id="main" class="{#{{ main_grid }}#} columns">
+  <div id="main" class="{{ main_grid }} columns">
     {% if page.highlighted %}
       <div class="highlight panel callout">
         {{ page.highlighted }}
@@ -89,12 +89,12 @@
     {{ page.content }}
   </div>
   {% if page.sidebar_first %}
-    <div id="sidebar-first" class="{#{{ sidebar_first_grid }}#} columns sidebar ">
+    <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
       {{ page.sidebar_first }}
     </div>
   {% endif %}
   {% if page.sidebar_second %}
-    <div id="sidebar-second" class="{#{{ sidebar_sec_grid }}#} columns sidebar">
+    <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
       {{ page.sidebar_second }}
     </div>
   {% endif %}

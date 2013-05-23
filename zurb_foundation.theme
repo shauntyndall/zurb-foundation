@@ -140,7 +140,7 @@ function zurb_foundation_field__taxonomy_term_reference($variables) {
  * Outputs Foundation Nav bar http://foundation.zurb.com/docs/navigation.php
  *
  */
-function zurb_foundation_links__system_main_menu($variables) {
+function zurb_foundation_links__main($variables) {
   // Get all the main menu links
   $menu_links = menu_tree_output(menu_tree_all_data('main-menu'));
 
@@ -391,7 +391,7 @@ function zurb_foundation_preprocess_page(&$variables) {
       'path'  => $variables['logo'],
       'alt'   => strip_tags($variables['site_name']) . ' ' . t('logo'),
       'title' => strip_tags($variables['site_name']) . ' ' . t('Home'),
-            'attributes' => array(
+      'attributes' => array(
         'class' => array('logo'),
       ),
     ));
@@ -421,7 +421,7 @@ function zurb_foundation_preprocess_page(&$variables) {
   // Site navigation links.
   $variables['main_menu_links'] = '';
   if (isset($variables['main_menu'])) {
-    $variables['main_menu_links'] = theme('links__system_main_menu', array(
+    $variables['main_menu_links'] = theme('links__main', array(
       'links' => $variables['main_menu'],
       'attributes' => array(
         'id' => 'main-menu',
@@ -435,41 +435,25 @@ function zurb_foundation_preprocess_page(&$variables) {
     ));
   }
 
-  $variables['secondary_menu_links'] = '';
-  if (isset($variables['secondary_menu'])) {
-    $variables['secondary_menu_links'] = theme('links__system_secondary_menu', array(
-      'links' => $variables['secondary_menu'],
-      'attributes' => array(
-        'id'    => 'secondary-menu',
-        'class' => array('secondary', 'link-list'),
-      ),
-      'heading' => array(
-        'text' => t('Secondary menu'),
-        'level' => 'h2',
-        'class' => array('element-invisible'),
-      ),
-    ));
-  }
-
   // Convenience variables
   $left = $variables['page']['sidebar_first'];
   $right = $variables['page']['sidebar_second'];
 
   // Dynamic sidebars
   if (!empty($left) && !empty($right)) {
-    $variables['main_grid'] = 'six push-three';
-    $variables['sidebar_first_grid'] = 'three pull-six';
-    $variables['sidebar_sec_grid'] = 'three';
+    $variables['main_grid'] = 'large-6 push-3';
+    $variables['sidebar_first_grid'] = 'large-3 pull-6';
+    $variables['sidebar_sec_grid'] = 'large-3';
   } elseif (empty($left) && !empty($right)) {
-    $variables['main_grid'] = 'nine';
+    $variables['main_grid'] = 'large-9';
     $variables['sidebar_first_grid'] = '';
-    $variables['sidebar_sec_grid'] = 'three';
+    $variables['sidebar_sec_grid'] = 'large-3';
   } elseif (!empty($left) && empty($right)) {
-    $variables['main_grid'] = 'nine push-three';
-    $variables['sidebar_first_grid'] = 'three pull-nine';
+    $variables['main_grid'] = 'large-9 push-3';
+    $variables['sidebar_first_grid'] = 'large-3 pull-9';
     $variables['sidebar_sec_grid'] = '';
   } else {
-    $variables['main_grid'] = 'twelve';
+    $variables['main_grid'] = 'large-12';
     $variables['sidebar_first_grid'] = '';
     $variables['sidebar_sec_grid'] = '';
   }
