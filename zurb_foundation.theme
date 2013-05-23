@@ -380,6 +380,14 @@ function zurb_foundation_preprocess_node(&$variables) {
  * Add convenience variables and template suggestions
  */
 function zurb_foundation_preprocess_page(&$variables) {
+  drupal_add_js('themes/zurb_foundation/js/vendor/zepto.js',
+    array('type' => 'file', 'scope' => 'footer', 'weight' => 25)
+  );
+
+  drupal_add_js('jQuery(document).foundation();',
+    array('type' => 'inline', 'scope' => 'footer', 'weight' => 30)
+  );
+
   // Add page--node_type.html.twig suggestions
   if (!empty($variables['node'])) {
     $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
@@ -468,13 +476,4 @@ function zurb_foundation_preprocess_views_view(&$variables) {}
  * Implements hook_js_alter().
  * @param $js
  */
-function zurb_foundation_js_alter(&$js) {
-  // @todo: implement the below outside of html.html.twig
-  /*drupal_add_js("<script>document.write('<script src=' + ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') + '.js><\/script>')</script>",
-    array('type' => 'inline', 'scope' => 'footer', 'weight' => 20)
-  );
-
-  drupal_add_js('$(document).foundation();',
-    array('type' => 'inline', 'scope' => 'footer', 'weight' => 25)
-  );*/
-}
+function zurb_foundation_js_alter(&$js) {}
