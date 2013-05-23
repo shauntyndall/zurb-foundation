@@ -380,7 +380,7 @@ function zurb_foundation_preprocess_node(&$variables) {
  * Add convenience variables and template suggestions
  */
 function zurb_foundation_preprocess_page(&$variables) {
-  drupal_add_js('themes/zurb_foundation/js/vendor/zepto.js',
+  drupal_add_js(drupal_get_path('theme', 'zurb_foundation') . '/js/vendor/zepto.js',
     array('type' => 'file', 'scope' => 'footer', 'weight' => 25)
   );
 
