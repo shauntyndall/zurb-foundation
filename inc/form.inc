@@ -20,7 +20,7 @@ function zurb_foundation_form_alter(&$form, &$form_state, $form_id) {
 
   // Sexy submit buttons
   if (!empty($form['actions']) && !empty($form['actions']['submit'])) {
-    $form['actions']['submit']['#attributes'] = array('class' => array('secondary', 'button', 'radius'));
+    $form['actions']['submit']['#attributes'] = array('class' => array('success', 'button', 'radius'));
   }
 }
 /**
