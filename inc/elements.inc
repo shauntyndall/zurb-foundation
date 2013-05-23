@@ -16,26 +16,24 @@ function zurb_foundation_status_messages($variables) {
   );
   $status_mapping = array(
     'error' => 'alert',
-    'success' => 'success',
+    'status' => 'success',
     'warning' => 'secondary'
   );
   foreach (drupal_get_messages($display) as $type => $messages) {
     if (isset($status_mapping[$type])) {
-      $output .= "<div class=\"alert-box $status_mapping[$type]\">\n";
+      $output .= "<div data-alert class=\"alert-box radius $status_mapping[$type]\">\n";
     }
     else {
-      $output .= "<div class=\"alert-box\">\n";
+      $output .= "<div data-alert class=\"alert-box radius\">\n";
     }
 
     if (!empty($status_heading[$type])) {
       $output .= '<h2 class="element-invisible">' . $status_heading[$type] . "</h2>\n";
     }
     if (count($messages) > 1) {
-      $output .= " <ul>\n";
       foreach ($messages as $message) {
-        $output .= '  <li>' . $message . "</li>\n";
+        $output .= '<p>' . $message . '</p>';
       }
-      $output .= " </ul>\n";
     }
     else {
       $output .= $messages[0];
@@ -50,8 +48,8 @@ function zurb_foundation_status_messages($variables) {
     $output = '<div id="status-messages" class="reveal-modal expand" >'. $output;
     $output .= '<a class="close-reveal-modal">&#215;</a>';
     $output .= "</div>\n";
-    $output .= '</div><div class="reveal-modal-bg"></div>';
-  }
-  //*/
+    $output .= '<div class="reveal-modal-bg"></div>';
+  }*/
+
   return $output;
 }
