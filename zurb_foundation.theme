@@ -106,7 +106,7 @@ function zurb_foundation_field($variables) {
   }
 
   // Render the top-level DIV.
-  $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
+  $output = '<div ' . $variables['content_attributes'] . ' ' . $variables['attributes'] . '>' . $output . '</div>';
 
   return $output;
 }
@@ -210,11 +210,11 @@ function zurb_foundation_preprocess_block(&$variables) {
  * Implements template_preprocess_field().
  */
 function zurb_foundation_preprocess_field(&$variables) {
-  $variables['title_attributes_array']['class'][] = 'field-label';
+  $variables['title_attributes']['class'][] = 'field-label';
 
   // Edit classes for taxonomy term reference fields.
   if ($variables['field_type_css'] == 'taxonomy-term-reference') {
-    $variables['content_attributes_array']['class'][] = 'comma-separated';
+    $variables['content_attributes']['class'][] = 'comma-separated';
   }
 
   // Convenience variables
@@ -222,8 +222,8 @@ function zurb_foundation_preprocess_field(&$variables) {
   $bundle = $variables['element']['#bundle'];
   $mode = $variables['element']['#view_mode'];
   $classes = &$variables['classes_array'];
-  $title_classes = &$variables['title_attributes_array']['class'];
-  $content_classes = &$variables['content_attributes_array']['class'];
+  $title_classes = &$variables['title_attributes']['class'];
+  $content_classes = &$variables['content_attributes']['class'];
   $item_classes = array();
 
   // Global field classes
@@ -254,7 +254,7 @@ function zurb_foundation_preprocess_field(&$variables) {
   // Apply odd or even classes along with our custom classes to each item
   foreach ($variables['items'] as $delta => $item) {
     $item_classes[] = $delta % 2 ? 'odd' : 'even';
-    $variables['item_attributes_array'][$delta]['class'] = $item_classes;
+    $variables['item_attributes'][$delta]['class'] = $item_classes;
   }
 
   // Add class to a specific fields across content types.
@@ -361,17 +361,17 @@ function zurb_foundation_preprocess_html(&$variables) {
  */
 function zurb_foundation_preprocess_node(&$variables) {
   // Add node--node_type--view_mode.html.twig suggestions
-  $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $variables['elements']['#node']->type . '__' . $variables['view_mode'];
 
   // Add node--view_mode.html.twig suggestions
   $variables['theme_hook_suggestions'][] = 'node__' . $variables['view_mode'];
 
   // Add a class for the view mode.
   if (!$variables['teaser']) {
-    $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
+    $variables['content_attributes'][] = 'view-mode-' . $variables['view_mode'];
   }
 
-  $variables['title_attributes_array']['class'][] = 'node-title';
+  $variables['title_attributes']['class'][] = 'node-title';
 }
 
 /**
