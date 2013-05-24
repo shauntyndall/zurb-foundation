@@ -196,7 +196,7 @@ function zurb_foundation_preprocess_block(&$variables) {
     // Add a striping class
     case 'sidebar_first':
     case 'sidebar_second':
-      $variables['attributes']['class'][] = 'block-' . $variables['zebra'];
+      #$variables['attributes']['class'][] = 'block-' . $variables['zebra'];
     break;
 
     case 'header':
@@ -206,6 +206,7 @@ function zurb_foundation_preprocess_block(&$variables) {
     default;
   }
 }
+
 /**
  * Implements template_preprocess_field().
  */
