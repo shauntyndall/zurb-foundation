@@ -178,29 +178,29 @@ function zurb_foundation_links__main($variables) {
  */
 function zurb_foundation_preprocess_block(&$variables) {
   // Convenience variable for block headers.
-  $title_class = &$variables['title_attributes_array']['class'];
+  $title_class = &$variables['title_attributes']['class'];
 
   // Generic block header class.
   $title_class[] = 'block-title';
 
   // In the header region visually hide block titles.
-  if ($variables['block']->region == 'header') {
+  if ($variables['elements']['#block']->get('region') == 'header') {
     $title_class[] = 'element-invisible';
   }
 
   // Add a unique class for each block for styling.
-  $variables['classes_array'][] = $variables['block_html_id'];
+  $variables['attributes']['class'][] = $variables['attributes']['id'];
 
   // Add classes based on region.
-  switch ($variables['elements']['#block_config']['region']) {
+  switch ($variables['elements']['#block']->get('region')) {
     // Add a striping class
     case 'sidebar_first':
     case 'sidebar_second':
-      $variables['classes_array'][] = 'block-' . $variables['zebra'];
+      $variables['attributes']['class'][] = 'block-' . $variables['zebra'];
     break;
 
     case 'header':
-      $variables['classes_array'][] = 'header';
+      $variables['attributes']['class'][] = 'header';
     break;
 
     default;
