@@ -59,15 +59,10 @@ regions_hidden:
   page_top: 'Page Top'
   page_bottom: 'Page bottom'
 
-# @todo convert the settings below later
-
 # Hidden regions
-
 # regions_hidden[]: Page top
 # regions_hidden[]: Page bottom
 
-# Possible theme settings
-# settings[foundation_zurb_copyright]: 1
-# settings[foundation_zurb_credit]: ''
-# settings[foundation_zurb_font_fallback]: 'sans-serif'
-# settings[foundation_zurb_font_selectors]: 'body'
+settings:
+  use_zepto: '1'
+  use_respondjs: '0'
