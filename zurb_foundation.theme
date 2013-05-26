@@ -381,9 +381,17 @@ function zurb_foundation_preprocess_node(&$variables) {
  * Add convenience variables and template suggestions
  */
 function zurb_foundation_preprocess_page(&$variables) {
+  $path_to_theme = drupal_get_path('theme', 'zurb_foundation');
+
   if (theme_get_setting('use_zepto', 'zurb_foundation')) {
-    drupal_add_js(drupal_get_path('theme', 'zurb_foundation') . '/js/vendor/zepto.js',
+    drupal_add_js($path_to_theme . '/js/vendor/zepto.js',
       array('type' => 'file', 'scope' => 'footer', 'weight' => 25)
+    );
+  }
+
+  if (theme_get_setting('use_respondjs', 'zurb_foundation')) {
+    drupal_add_js('<!--[if lt IE 9]><script src="'. $path_to_theme . "/js/vendor/respond.min.js" . '></script><![endif]-->',
+      array('type' => 'file', 'scope' => 'header', 'weight' => -100)
     );
   }
 
@@ -431,7 +439,7 @@ function zurb_foundation_preprocess_page(&$variables) {
 
   // Site navigation links.
   $variables['main_menu_links'] = '';
-  if (isset($variables['main_menu'])) {
+  /*if (isset($variables['main_menu'])) {
     $variables['main_menu_links'] = theme('links__main', array(
       'links' => $variables['main_menu'],
       'attributes' => array(
@@ -444,7 +452,7 @@ function zurb_foundation_preprocess_page(&$variables) {
         'class' => array('element-invisible'),
       ),
     ));
-  }
+  }*/
 
   // Convenience variables
   $left = $variables['page']['sidebar_first'];
