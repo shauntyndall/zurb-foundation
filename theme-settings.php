@@ -24,7 +24,7 @@ function zurb_foundation_form_system_theme_settings_alter(&$form, &$form_state) 
   $form['theme_javascript']['use_respondjs'] = array(
     '#type' => 'checkbox',
     '#title' => t('Implement Respond.js'),
-    '#description' => t('Foundation 4.x does not support IE8, but you can include Respond.js to add additional support.'),
+    '#description' => t('Foundation 4.x does not support IE8, but you can include Respond.js to add additional support for Internet Explorer.'),
     '#default_value' => theme_get_setting('use_respondjs', 'zurb_foundation'),
   );
 }
