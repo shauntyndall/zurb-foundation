@@ -384,20 +384,30 @@ function zurb_foundation_preprocess_page(&$variables) {
   $path_to_theme = drupal_get_path('theme', 'zurb_foundation');
 
   if (theme_get_setting('use_zepto', 'zurb_foundation')) {
-    drupal_add_js($path_to_theme . '/js/vendor/zepto.js',
+    drupal_add_js('/' . $path_to_theme . '/js/vendor/zepto.js',
       array('type' => 'file', 'scope' => 'footer', 'weight' => 25)
     );
   }
 
   if (theme_get_setting('use_respondjs', 'zurb_foundation')) {
-    drupal_add_js('<!--[if lt IE 9]><script src="'. $path_to_theme . "/js/vendor/respond.min.js" . '></script><![endif]-->',
-      array('type' => 'file', 'scope' => 'header', 'weight' => -100)
+    $script = array(
+      '#tag' => 'script',
+      '#attributes' => array(
+        'src' => '/' . $path_to_theme . '/js/vendor/respond.min.js',
+        'type' => 'text/javascript',
+      ),
+      '#prefix' => '<!--[if lte IE 9]>',
+      '#suffix' => '</script><![endif]-->',
     );
+
+    drupal_add_html_head($script, 'zurb_respondjs');
   }
 
-  drupal_add_js('jQuery(document).foundation();',
-    array('type' => 'inline', 'scope' => 'footer', 'weight' => 30)
-  );
+  // initialize Foundation library last
+  drupal_add_js('(function ($, Drupal, window, document, undefined) {
+      $(document).foundation();
+    })(jQuery, Drupal, this, this.document);',
+    array('type' => 'inline', 'scope' => 'footer', 'weight' => 9999));
 
   // Add page--node_type.html.twig suggestions
   if (!empty($variables['node'])) {
@@ -407,7 +417,7 @@ function zurb_foundation_preprocess_page(&$variables) {
   $variables['logo_img'] = '';
   if (!empty($variables['logo'])) {
     $variables['logo_img'] = theme('image', array(
-      'path'  => $variables['logo'],
+      'uri'  => $variables['logo'],
       'alt'   => strip_tags($variables['site_name']) . ' ' . t('logo'),
       'title' => strip_tags($variables['site_name']) . ' ' . t('Home'),
       'attributes' => array(
@@ -439,7 +449,7 @@ function zurb_foundation_preprocess_page(&$variables) {
 
   // Site navigation links.
   $variables['main_menu_links'] = '';
-  /*if (isset($variables['main_menu'])) {
+  if (isset($variables['main_menu'])) {
     $variables['main_menu_links'] = theme('links__main', array(
       'links' => $variables['main_menu'],
       'attributes' => array(
@@ -452,7 +462,7 @@ function zurb_foundation_preprocess_page(&$variables) {
         'class' => array('element-invisible'),
       ),
     ));
-  }*/
+  }
 
   // Convenience variables
   $left = $variables['page']['sidebar_first'];
