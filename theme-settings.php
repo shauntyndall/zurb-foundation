@@ -29,7 +29,7 @@ function zurb_foundation_form_system_theme_settings_alter(&$form, &$form_state) 
   $form['theme_javascript']['use_zepto'] = array(
     '#type' => 'checkbox',
     '#title' => t('Include Zepto.js'),
-    '#description' => t('Foundation can leverage Zepto over jQuery - if you want to enable it .......'),
+    '#description' => t('Foundation can leverage Zepto over jQuery - you can optionally enable it if you want to.'),
     '#default_value' => theme_get_setting('use_zepto', 'zurb_foundation'),
   );
 
