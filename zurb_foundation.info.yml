@@ -64,5 +64,6 @@ regions_hidden:
 # regions_hidden[]: Page bottom
 
 settings:
+  status_in_reveal: '0'
   use_zepto: '1'
   use_respondjs: '0'
