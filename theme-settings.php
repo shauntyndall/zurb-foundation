@@ -9,6 +9,18 @@
  *   The form state.
  */
 function zurb_foundation_form_system_theme_settings_alter(&$form, &$form_state) {
+  $form['theme_ui'] = array(
+    '#type' => 'details',
+    '#title' => t('UI Elements'),
+  );
+
+  $form['theme_ui']['status_in_reveal'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Display status messages in Reveal'),
+    '#description' => t('This will display status messages in a Foundation Reveal modal instead of print them into the page output.'),
+    '#default_value' => theme_get_setting('status_in_reveal', 'zurb_foundation'),
+  );
+
   $form['theme_javascript'] = array(
     '#type' => 'details',
     '#title' => t('Javascript Files'),
