@@ -17,6 +17,8 @@ stylesheets:
     # Base theme specific CSS
     - css/drupal.css
     - css/app.css
+    # Uncomment for IE8 Grid support
+    #- css/ie-grid.css
 
 scripts:
   - js/vendor/custom.modernizr.js
