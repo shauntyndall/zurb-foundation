@@ -383,9 +383,11 @@ function zurb_foundation_preprocess_node(&$variables) {
 function zurb_foundation_preprocess_page(&$variables) {
   $path_to_theme = drupal_get_path('theme', 'zurb_foundation');
 
-  if (theme_get_setting('use_zepto', 'zurb_foundation')) {
-    drupal_add_js('/' . $path_to_theme . '/js/vendor/zepto.js',
-      array('type' => 'file', 'scope' => 'footer', 'weight' => 25)
+  if (!user_is_logged_in()) {
+    #IE8 can't use jQuery 2.0 that comes with Drupal 8 - it is not supported. IE will report jQuery is not defined.
+    #drupal_add_library('system', 'jquery');
+    drupal_add_js('/' . $path_to_theme . '/js/vendor/jquery.js',
+      array('type' => 'file', 'scope' => 'header', 'weight' => -100)
     );
   }
 
@@ -396,7 +398,7 @@ function zurb_foundation_preprocess_page(&$variables) {
         'src' => '/' . $path_to_theme . '/js/vendor/respond.min.js',
         'type' => 'text/javascript',
       ),
-      '#prefix' => '<!--[if lte IE 9]>',
+      '#prefix' => '<!--[if lte IE 8]>',
       '#suffix' => '</script><![endif]-->',
     );
 
@@ -404,9 +406,9 @@ function zurb_foundation_preprocess_page(&$variables) {
   }
 
   // initialize Foundation library last
-  drupal_add_js('(function ($, Drupal, window, document, undefined) {
+  drupal_add_js('(function ($) {
       $(document).foundation();
-    })(jQuery, Drupal, this, this.document);',
+    })(jQuery);',
     array('type' => 'inline', 'scope' => 'footer', 'weight' => 9999));
 
   // Add page--node_type.html.twig suggestions
