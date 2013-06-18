@@ -319,7 +319,7 @@ function zurb_foundation_preprocess_html(&$variables) {
     $variables['classes_array'][] = 'lang-' . $variables['language']->language;
   }
 
-  $variables['skip_link'] = l('Skip to main content', '', array('fragment' => 'main-content', 'attributes' => array('class' => array('visually-hidden', 'element-focusable'))));
+  $variables['skip_link'] = l('Skip to main content', '', array('fragment' => 'main-content', 'attributes' => array('class' => array('visually-hidden', 'focusable'))));
 
   // Classes for body element. Allows advanced theming based on context
   if (!$variables['is_front']) {
