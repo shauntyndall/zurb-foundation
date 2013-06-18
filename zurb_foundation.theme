@@ -76,8 +76,8 @@ function zurb_foundation_breadcrumb($variables) {
 
   if (!empty($breadcrumb)) {
     // Provide a navigational heading to give context for breadcrumb links to
-    // screen-reader users. Make the heading invisible with .element-invisible.
-    $breadcrumbs = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+    // screen-reader users. Make the heading invisible with .visually-hidden.
+    $breadcrumbs = '<h2 class="visually-hidden">' . t('You are here') . '</h2>';
 
     $breadcrumbs .= '<ul class="breadcrumbs">';
 
@@ -185,7 +185,7 @@ function zurb_foundation_preprocess_block(&$variables) {
 
   // In the header region visually hide block titles.
   if ($variables['elements']['#block']->get('region') == 'header') {
-    $title_class[] = 'element-invisible';
+    $title_class[] = 'visually-hidden';
   }
 
   // Add a unique class for each block for styling.
@@ -319,7 +319,7 @@ function zurb_foundation_preprocess_html(&$variables) {
     $variables['classes_array'][] = 'lang-' . $variables['language']->language;
   }
 
-  $variables['skip_link'] = l('Skip to main content', '', array('fragment' => 'main-content', 'attributes' => array('class' => array('element-invisible', 'element-focusable'))));
+  $variables['skip_link'] = l('Skip to main content', '', array('fragment' => 'main-content', 'attributes' => array('class' => array('visually-hidden', 'element-focusable'))));
 
   // Classes for body element. Allows advanced theming based on context
   if (!$variables['is_front']) {
@@ -461,7 +461,7 @@ function zurb_foundation_preprocess_page(&$variables) {
       'heading' => array(
         'text' => t('Main menu'),
         'level' => 'h2',
-        'class' => array('element-invisible'),
+        'class' => array('visually-hidden'),
       ),
     ));
   }
