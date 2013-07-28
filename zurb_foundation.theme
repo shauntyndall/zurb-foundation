@@ -211,6 +211,12 @@ function zurb_foundation_preprocess_block(&$variables) {
  * Implements template_preprocess_field().
  */
 function zurb_foundation_preprocess_field(&$variables) {
+  if (!isset($variables['title_attributes']['class'])) {
+    $variables['title_attributes']['class'] = array();
+  }
+  if (!isset($variables['content_attributes']['class'])) {
+    $variables['content_attributes']['class'] = array();
+  }
   $variables['title_attributes']['class'][] = 'field-label';
 
   // Edit classes for taxonomy term reference fields.
