@@ -41,7 +41,7 @@
  */
 #}
 {% if block.delta != 'main' %}
-<div{{ attributes }}>
+<section{{ attributes }}>
   {% endif %}
 
   {{ title_prefix }}
@@ -61,5 +61,5 @@
   {% endif %}
 
   {% if block.delta != 'main' %}
-</div>
+</section>
 {% endif %}
