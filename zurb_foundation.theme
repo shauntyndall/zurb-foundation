@@ -509,7 +509,35 @@ function zurb_foundation_preprocess_page(&$variables) {
 function zurb_foundation_preprocess_views_view(&$variables) {}
 
 /**
+ * Implements hook_css_alter().
+ * @param $css
+ */
+function zurb_foundation_css_alter(&$css) {
+  // Remove base theme CSS.
+  if(theme_get_setting('disable_base_css', 'zurb_foundation') == TRUE) {
+    $theme_path = drupal_get_path('theme', 'zurb_foundation');
+
+    foreach($css as $path => $values) {
+      if(strpos((string) $values['data'], $theme_path) === 0) {
+        unset($css[$path]);
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_js_alter().
  * @param $js
  */
-function zurb_foundation_js_alter(&$js) {}
+function zurb_foundation_js_alter(&$js) {
+  // Remove base theme JS.
+  if(theme_get_setting('disable_base_js', 'zurb_foundation') == TRUE) {
+    $theme_path = drupal_get_path('theme', 'zurb_foundation');
+
+    foreach($js as $path => $values) {
+      if(strpos((string) $values['data'], $theme_path) === 0) {
+        unset($js[$path]);
+      }
+    }
+  }
+}
