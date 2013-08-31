@@ -397,9 +397,8 @@ function zurb_foundation_preprocess_node(&$variables) {
 function zurb_foundation_preprocess_page(&$variables) {
   $path_to_theme = drupal_get_path('theme', 'zurb_foundation');
 
-  if (!user_is_logged_in()) {
-    #IE8 can't use jQuery 2.0 that comes with Drupal 8 - it is not supported. IE will report jQuery is not defined.
-    #drupal_add_library('system', 'jquery');
+  if ($variables['user']->isAnonymous()) {
+    // @todo: really need to stress the use of jQuery Update - we may not even need this line.
     drupal_add_js('/' . $path_to_theme . '/js/vendor/jquery.js',
       array('type' => 'file', 'scope' => 'header', 'weight' => -100)
     );
