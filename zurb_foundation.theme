@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Load template files
- *
- * $files   Contains alphabetized list of files that will be required
+ * $files Contains alphabetized list of files that will be required
  */
 $files = array(
   'elements.inc',
@@ -11,6 +11,11 @@ $files = array(
   'theme.inc',
 );
 
+/**
+ * Loads
+ * @param array $files
+ *   Contains alphabetized list of files that will be required.
+ */
 function _zurb_foundation_load($files) {
   $tp = drupal_get_path('theme', 'zurb_foundation');
   $file = '';
