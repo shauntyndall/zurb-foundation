@@ -29,6 +29,9 @@ function _zurb_foundation_load($files) {
   }
 }
 
+/**
+ * Load required files defined above.
+ */
 _zurb_foundation_load($files);
 
 /**
