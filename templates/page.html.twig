@@ -60,9 +60,24 @@
 */
 #}
 </div>
+
+{% if messages and not zurb_foundation_messages_modal %}
+<div class="l-messages row">
+  <div class="large-12 columns">
+    {{ messages }}
+  </div>
+</div>
+{% endif %}
+
+{% if page.help %}
+<div class="l-help row">
+  <div class="large-12 columns">
+    {{ page.help }}
+  </div>
+</div>
+{% endif %}
+
 <div class="row">
-  {% if messages %} {{ messages }} {% endif %}
-  {% if page.help %} {{ page.help }} {% endif %}
   <div id="main" class="{{ main_grid }} columns">
     {% if page.highlighted %}
       <div class="highlight panel callout">

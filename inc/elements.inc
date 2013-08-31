@@ -42,6 +42,10 @@ function zurb_foundation_status_messages($variables) {
       $output .= $messages[0];
     }
 
+    if(!theme_get_setting('status_in_reveal', 'zurb_foundation')) {
+      $output .= '<a href="#" class="close">&times;</a>';
+    }
+
     $output .= "</div>\n";
   }
 
