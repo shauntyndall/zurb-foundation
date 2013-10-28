@@ -21,7 +21,6 @@ stylesheets:
     #- css/ie-grid.css
 
 scripts:
-  - js/vendor/custom.modernizr.js
   # Foundation framework scripts.
   - js/foundation/foundation.min.js
   # Your theme javascript
