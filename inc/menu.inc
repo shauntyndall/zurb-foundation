@@ -43,5 +43,13 @@ function zurb_foundation_menu_local_task(&$variables) {
 
   $link['localized_options']['attributes']['class'] = array('button', 'secondary');
 
-  return '<li' . (!empty($variables['element']['#active']) ? ' class="active"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
+  if (!empty($link['href'])) {
+    // @todo - remove this once all pages are converted to routes.
+    $a_tag = l($link_text, $link['href'], $link['localized_options']);
+  }
+  else {
+    $a_tag = \Drupal::l($link_text, $link['route_name'], $link['route_parameters'], $link['localized_options']);
+  }
+
+  return '<li' . (!empty($variables['element']['#active']) ? ' class="active"' : '') . '>' . $a_tag. "</li>\n";
 }
