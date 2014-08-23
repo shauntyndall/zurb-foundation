@@ -5,7 +5,7 @@ type: theme
 engine: twig
 
 # Image appears on admin/appearance
-screenshot: images/screenshot.png
+screenshot: screenshot.png
 
 # Foundation framework stylesheets
 stylesheets:
