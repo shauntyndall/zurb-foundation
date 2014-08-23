@@ -1,0 +1,9 @@
+# Schema for the configuration files of the ZURB Foundation theme.
+
+zurb_foundation.settings:
+  type: theme_settings
+  label: 'Zurb Foundation settings'
+
+zurb_foundation.breakpoints:
+  type: theme_breakpoints_default
+  label: 'Zurb Foundation breakpoints'

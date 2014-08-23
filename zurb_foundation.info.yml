@@ -14,32 +14,31 @@ stylesheets:
     # - css/foundation.min.css
     - css/normalize.css
     - css/foundation.css
-    # Base theme specific CSS
-    - css/drupal.css
-    - css/app.css
-    # Uncomment for IE8 Grid support
-    #- css/ie-grid.css
 
 scripts:
   # Foundation framework scripts.
-  - js/foundation/foundation.min.js
-  # Your theme javascript
-  - js/custom/app.js
+  - js/foundation.min.js
+  - js/vendor.modernizr.js
+  - js/jquery.js
 
-# Uncompressed uncomment for development or as a reference
-# scripts[]: js/foundation/foundation.alerts.js
-# scripts[]: js/foundation/foundation.clearing.js
-# scripts[]: js/foundation/foundation.cookie.js
-# scripts[]: js/foundation/foundation.dropdown.js
-# scripts[]: js/foundation/foundation.forms.js
-# scripts[]: js/foundation/foundation.joyride.js
-# scripts[]: js/foundation/foundation.magellan.js
-# scripts[]: js/foundation/foundation.orbit.js
-# scripts[]: js/foundation/foundation.placeholder.js
-# scripts[]: js/foundation/foundation.reveal.js
-# scripts[]: js/foundation/foundation.section.js
-# scripts[]: js/foundation/foundation.tooltips.js
-# scripts[]: js/foundation/foundation.topbar.js
+  # Uncompressed uncomment for development or as a reference
+  # - js/foundation/foundation.abide.js
+  # - js/foundation/foundation.accordion.js
+  # - js/foundation/foundation.alerts.js
+  # - js/foundation/foundation.clearing.js
+  # - js/foundation/foundation.dropdown.js
+  # - js/foundation/foundation.equalizer.js
+  # - js/foundation/foundation.interchange.js
+  # - js/foundation/foundation.joyride.js
+  # - js/foundation/foundation.js
+  # - js/foundation/foundation.magellan.js
+  # - js/foundation/foundation.offcanvas.js
+  # - js/foundation/foundation.orbit.js
+  # - js/foundation/foundation.reveal.js
+  # - js/foundation/foundation.slider.js
+  # - js/foundation/foundation.tab.js
+  # - js/foundation/foundation.tooltip.js
+  # - js/foundation/foundation.topbar.js
 
 # Regions are output in the page.tpl.php
 
