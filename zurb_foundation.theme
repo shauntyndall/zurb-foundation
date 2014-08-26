@@ -4,3 +4,34 @@
  * @file
  * Functions to support theming in the ZURB Foundation theme.
  */
+
+function zurb_foundation_preprocess_page(&$variables) {
+
+  // Set additional attributes on the primary and secondary navigation menus.
+  if (!empty($variables['main_menu'])) {
+    $variables['main_menu']['#attributes']['class'][] = 'left';
+  }
+  if (!empty($variables['secondary_menu'])) {
+    $variables['secondary_menu']['#attributes']['class'][] = 'right';
+  }
+
+  // Dynamic sidebars
+  if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
+    $variables['main_grid'] = 'large-6 push-3';
+    $variables['sidebar_first_grid'] = 'large-3 pull-6';
+    $variables['sidebar_sec_grid'] = 'large-3';
+  } elseif (empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
+    $variables['main_grid'] = 'large-9';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = 'large-3';
+  } elseif (!empty($variables['page']['sidebar_first']) && empty($variables['page']['sidebar_second'])) {
+    $variables['main_grid'] = 'large-9 push-3';
+    $variables['sidebar_first_grid'] = 'large-3 pull-9';
+    $variables['sidebar_sec_grid'] = '';
+  } else {
+    $variables['main_grid'] = 'large-12';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = '';
+  }
+
+}

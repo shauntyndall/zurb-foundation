@@ -67,6 +67,25 @@
 
 <header role="banner" class="row">
 
+  {% if main_menu or secondary_menu %}
+    <nav class="top-bar" data-topbar role="navigation" aria-labelledby="links__system_main_menu">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">{{ site_name }}</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        {{ main_menu }}
+
+        <!-- Left Nav Section -->
+        {{ secondary_menu }}
+      </section>
+    </nav>
+  {% endif %}
+
   {% if logo %}
     <section class="logo small-12 columns">
       <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
@@ -100,13 +119,6 @@
    </section>
 </header>
 
-{% if main_menu or secondary_menu %}
-  <nav role="navigation" aria-labelledby="links__system_main_menu">
-    {{ main_menu }}
-    {{ secondary_menu }}
-  </nav>
-{% endif %}
-
 {% if breadcrumb %}
   <div class="row">
     <section class="breadcrumb small-12 columns">
@@ -134,7 +146,7 @@
 <main role="main" class="row">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  <div class="layout-content">
+  <div class="layout-content {{ main_grid }} columns">
 
     {%  if page.highlighted %}
       <section class="highlight panel callout">
@@ -160,13 +172,13 @@
   </div>{# /.layout-content #}
 
   {% if page.sidebar_first %}
-    <aside class="layout-sidebar-first" role="complementary">
+    <aside class="layout-sidebar-first {{ sidebar_first_grid }} columns" role="complementary">
       {{ page.sidebar_first }}
     </aside>
   {% endif %}
 
   {% if page.sidebar_second %}
-    <aside class="layout-sidebar-second" role="complementary">
+    <aside class="layout-sidebar-second {{ sidebar_sec_grid }} columns" role="complementary">
       {{ page.sidebar_second }}
     </aside>
   {% endif %}
